@@ -14,3 +14,10 @@ class LoginPageLocators():
     REGISTR_PASSWORD_FIELD = (By.CSS_SELECTOR, '#id_registration-password1')
     CONFIRM_PASSWORD_FIELD = (By.CSS_SELECTOR, '#id_registration-password2')
     REGISTR_BUTTON = (By.CSS_SELECTOR, '[name="registration_submit"]')
+
+class ProductPageLocators():
+    ADD_TO_BASKET_BUTTON = (By.CSS_SELECTOR, '.btn-add-to-basket')
+    PRODUCT_NAME = (By.CSS_SELECTOR, '.product_main h1')
+    CONFIRM_MESSAGE = (By.XPATH, '//div[@class="alert alert-safe alert-noicon alert-success  fade in"][1]')
+    PRICE_PRODUCT = (By.XPATH, "//div[@class='col-sm-6 product_main']/p[@class='price_color']")
+    PRICE_IN_BASKET = (By.CSS_SELECTOR, "div#messages > .alert.alert-safe.alert-noicon.alert-info.fade.in strong")
