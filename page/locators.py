@@ -31,7 +31,7 @@ class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET_BUTTON = (By.XPATH, "//span[@class='btn-group']/a")
-
+    USER_ICON = (By.XPATH, "//ul[@class='nav navbar-nav navbar-right']/li[1]")
 
 class BasketPageLocators():
     EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
