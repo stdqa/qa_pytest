@@ -48,3 +48,14 @@ class ProductPage(BasePage):
         product_price_in_basket = self.get_element_text(*ProductPageLocators.PRICE_IN_BASKET)
         assert product_price == product_price_in_basket, 'Price of product not the same in basket'
         print('\nPrice in product and price in basket after adding the same')
+
+    def should_not_be_success_message(self):
+        print("\nWaiting for message...", end='\t')
+        assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
+
+
+    def should_disappear_success_message(self):
+        print("\nWaiting for message...", end='\t')
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGE), \
+            "Success message is presented, but should not be"
