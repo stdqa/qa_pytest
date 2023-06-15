@@ -9,32 +9,32 @@ import math
 
 class ProductPage(BasePage):
     def add_product_to_basket_click(self):
-
+        print('\nStart adding product to basket')
         add_button = self.browser.find_element(*ProductPageLocators.ADD_TO_BASKET_BUTTON)
-        #time.sleep(1)
         add_button.click()
+        print('\nSuccess, add button clicked')
 
     def solve_quiz_and_get_code(self):
-        #time.sleep(1)
-        WebDriverWait(self.browser, 3).until(EC.alert_is_present())
+        print('\nStarting quiz')
+        WebDriverWait(self.browser, 5).until(EC.alert_is_present())
         alert = self.browser.switch_to.alert
         x = alert.text.split(" ")[2]
         answer = str(math.log(abs((12 * math.sin(float(x))))))
         alert.send_keys(answer)
-        #time.sleep(1)
         alert.accept()
         try:
-            #time.sleep(1)
-            WebDriverWait(self.browser, 10).until(EC.alert_is_present())
+            WebDriverWait(self.browser, 15).until(EC.alert_is_present())
             alert = self.browser.switch_to.alert
             alert_text = alert.text
             print(f"Your code: {alert_text}")
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+        print('\nSuccess, quiz solve')
 
     def should_be_confirm_message(self):
         print("\nChecking product name...", end='\t')
+        time.sleep(1) # not sure whats wrong , but should use time becouse webdriverwait doesnt wait
         confirm_message_locator = ProductPageLocators.CONFIRM_MESSAGE
         WebDriverWait(self.browser, 10).until(EC.visibility_of_element_located(confirm_message_locator))
         expected_text = self.get_element_text(*ProductPageLocators.CONFIRM_MESSAGE)[2:]
@@ -53,7 +53,6 @@ class ProductPage(BasePage):
         print("\nWaiting for message...", end='\t')
         assert self.is_not_element_present(*ProductPageLocators.SUCCESS_MESSAGE), \
             "Success message is presented, but should not be"
-
 
     def should_disappear_success_message(self):
         print("\nWaiting for message...", end='\t')
