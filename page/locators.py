@@ -25,3 +25,14 @@ class ProductPageLocators():
     PRICE_PRODUCT = (By.XPATH, "//div[@class='col-sm-6 product_main']/p[@class='price_color']")
     PRICE_IN_BASKET = (By.CSS_SELECTOR, "div#messages > .alert.alert-safe.alert-noicon.alert-info.fade.in strong")
     SUCCESS_MESSAGE = (By.XPATH, "//div[@class='alert alert-safe alert-noicon alert-success  fade in'][1]")
+
+
+class BasePageLocators():
+    LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
+    LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
+    BASKET_BUTTON = (By.XPATH, "//span[@class='btn-group']/a")
+
+
+class BasketPageLocators():
+    EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner p")
+    ITEMS_TO_BUY_MESSAGE = (By.CSS_SELECTOR, ".basket-title h2")
